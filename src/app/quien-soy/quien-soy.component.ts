@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-quien-soy',
   standalone: true,
   imports: [RouterOutlet,RouterLink,RouterLinkActive],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './quien-soy.component.html',
+  styleUrl: './quien-soy.component.css'
 })
-export class AppComponent {
-  title = 'TP-01';
+export class QuienSoyComponent {
+
 }
