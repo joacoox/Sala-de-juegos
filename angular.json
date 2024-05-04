@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TP-01": {
+    "tp-01": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -27,7 +27,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           },
           "configurations": {
             "production": {
@@ -57,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TP-01:build:production"
+              "buildTarget": "tp-01:build:production"
             },
             "development": {
-              "buildTarget": "TP-01:build:development"
+              "buildTarget": "tp-01:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +70,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "TP-01:build"
+            "buildTarget": "tp-01:build"
           }
         },
         "test": {

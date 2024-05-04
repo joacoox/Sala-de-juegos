@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
@@ -10,35 +11,55 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  name : string = "";
+  email : string = "";
   password : string = "";
   flag : Boolean = true;
-  constructor(private router: Router) {
+  flagError: boolean = false;
+  msjError: string = "";
+  constructor(private router: Router, public auth:Auth) {
 
   }
 
   login(){
-    if(this.name == "a" && this.password == "a"){
-      this.goTo("home")
-    }
-  }
+     
+    signInWithEmailAndPassword(this.auth, this.email, this.password).then((res) => {
+      if (res.user.email !== null){
+        this.goTo("home");
+      }
 
-  log(){
+      this.flagError = false;
+
+    }).catch((e) => {
+      this.flagError = true;  
+
+      switch (e.code) {
+        case "auth/invalid-email":
+          this.msjError = "Email invalido";
+          break;
+        case "auth/invalid-credential":
+          this.msjError = "Ingrese bien los datos porfavor";
+          break;
+        default:
+          this.msjError = e.code;
+          break;
+      }              
+    });
 
     
-    if(this.name == "" && this.password == "")
-    {
-      console.log("No ingresaste nada");
-      this.flag = false;
-    }
-    if(this.password.length < 4){
-      console.log("Clave muy corta");
-      this.flag = false;
-    }
-    if(this.flag){
-      this.goTo("home");
-    }
+}
 
+  CloseSession(){
+    signOut(this.auth);
+  }
+  
+  AutoLogin(){
+
+    signInWithEmailAndPassword(this.auth, "joaco@gmail.com","123456").then(res => {
+      if (res) {
+        this.goTo("home");
+      } 
+    });
+    
   }
 
   goTo(path: string) {

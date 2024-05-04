@@ -1,12 +1,59 @@
 <header> 
-    <nav class="nav-bar">
+    <nav id="nav-bar">     
         <ul>
-            <li>
-                <button class ="boton-nav" routerLink="/home" routerLinkActive="active-route"><span class="nav-bar-span">Home</span></button>     
+            <li >
+                <button class="button-glitch"><h1 class = 'title'>Sala de juegos</h1></button>
             </li>
             <li>
-                <button class ="boton-nav" routerLink="/quien-soy" routerLinkActive="active-route"><span class="nav-bar-span">Quién soy</span></button>
+                <button id="button-navbar" routerLink="/home" routerLinkActive="active-route">Home</button>
+            </li>
+            <li>
+                <button id="button-navbar" routerLink="/quien-soy" routerLinkActive="active-route">Quien soy</button>
+            </li>
+            <li>
+                <button id="button-navbar" routerLink="/pacman" routerLinkActive="active-route">Pac-man</button>
             </li>
         </ul>
     </nav>
 </header>
+
+
+<div id="carrusel-main">        
+    <button class="prev-btn" (click)="changeImage('previous')">&#10094;</button>
+    <img src="../../assets/salon de juegos.jpg" id="carrusel-foto" class="imagen-zoom" alt="carrusel imagenes">
+    <button class="next-btn" (click)="changeImage('next')">&#10095;</button>
+</div>
+
+
+  
+<div id="container-wrapper">
+    <div id="container">
+        <div id="div-uno">
+            <div class="card">
+                <div class="card2">
+                    
+                </div>
+              </div>
+        </div>
+        <div id="div-dos">
+            <div class="card">
+                <div class="card2">
+
+                </div>
+              </div>
+        </div>
+        <div id="div-tres">
+            <div class="card">
+                <div class="card2">
+
+                </div>
+              </div>
+        </div>
+        <div id="div-cuatro">
+            <div class="card">
+                <div class="card2">                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
