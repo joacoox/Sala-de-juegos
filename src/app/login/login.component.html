@@ -1,30 +1,30 @@
 <div id="container">
 	<div id="form-container">
-	  <p id="title">Login</p>
+	  <p id="title">Inicio de sesion</p>
 	  <form id="form">
 		<div id="input-group-username" class="input-group-login">
 		  <label for="username">Email</label>
 		  <input type="text" name="username" id="username" [(ngModel)]="email" placeholder="">
 		</div>
 		<div id="input-group-password" class="input-group-login">
-		  <label for="password">Password</label>
+		  <label for="password">Clave</label>
 		  <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="">
 		  <div id="forgot" class="forgot">
-			<a rel="noopener noreferrer" (click)="goTo('register')">Dont have an account?</a>
+			<a rel="noopener noreferrer" (click)="goTo('register')">No tenes cuenta?</a>
 			@if(flagError){
                 <p id="error-register">{{msjError}}</p>
             }
 		  </div>
 		</div>
-		<button id="sign" (click)="login()">Sign in</button>
+		<button id="sign" (click)="login()">Ingresar</button>
 	  </form>
 	  <div id="social-message" class="social-message">
 		<div id="line1" class="line"></div>
 		
 		<div id="line2" class="line"></div>
 	  </div>  
-	  <p id="signup" class="signup">Want to auto login?
-		<a rel="noopener noreferrer" id="auto-login" class="" (click)="AutoLogin()">Click here!</a>
+	  <p id="signup" class="signup">Queres autologearte?
+		<a rel="noopener noreferrer" id="auto-login" class="" (click)="AutoLogin()">Clickea aqui!</a>
 	  </p>
 	</div>
 </div>

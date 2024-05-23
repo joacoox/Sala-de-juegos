@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthfireService } from '../services/authfire/authfire.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent {
   flagError: boolean = false;
   msjError: string = "";
 
-  constructor(public auth : Auth, private router: Router){
+  constructor(private router: Router, public auth : AuthfireService){
 
   }
 
@@ -25,26 +26,26 @@ export class RegisterComponent {
   Register(){
 
     if(this.password == this.repeatPassword){
-      createUserWithEmailAndPassword(this.auth, this.email, this.password).then((res) => {
+      this.auth.Register(this.email, this.password).then((res) => {
         if (res.user.email !== null){
+          this.auth.userActive = res.user;
           this.goTo("home");
         }
-  
-        this.flagError = false;
-  
       }).catch((e) => {
         this.flagError = true;
-  
         switch (e.code) {
           case "auth/invalid-email":
             this.msjError = "Email invalido";
-            break;
+          break;
           case "auth/email-already-in-use":
             this.msjError = "Email ya en uso";
-            break;
+          break;
+          case "auth/weak-password":
+            this.msjError = "La contraseña debe ser de mas de 6 caracteres";
+          break;
           default:
             this.msjError = e.code;
-            break;
+          break;
         }
       });
 

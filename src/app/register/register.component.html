@@ -1,25 +1,25 @@
 <div id="container">
 	<div id="form-container">
-	  <p id="title">Register</p>
+	  <p id="title">Registrate</p>
 	  <form id="form">
 		<div id="input-group-username" class="input-group-login">
 		  <label for="username">Email</label>
 		  <input type="text" name="username" id="username" placeholder="" [(ngModel)]="email">
 		</div>
 		<div id="input-group-password" class="input-group-login">
-		  <label for="password">Password</label>
+		  <label for="password">Clave</label>
 		  <input type="password" name="password" placeholder="" [(ngModel)]="password">
-          <label for="password">Repeat your password</label>
+          <label for="password">Repeti tu clave</label>
 		  <input type="password" name="password" placeholder="" [(ngModel)]="repeatPassword">
 		  <div id="forgot" class="forgot">
-			<a rel="noopener noreferrer" href="#" (click)="goTo('login')">Already have an account?</a>
+			<a rel="noopener noreferrer" href="#" (click)="goTo('login')">Ya tenes una cuenta?</a>
 			@if(flagError){
                 <p id="error-register">{{msjError}}</p>
             }
 			<span id = "error-register"></span>
 		  </div>
 		</div>
-		<button id="sign" (click)="Register()">Sign up</button>
+		<button id="sign" (click)="Register()">Ingresar</button>
 	  </form>
 	  <div id="social-message" class="social-message">
 		<div id="line1" class="line"></div>

@@ -1,0 +1,39 @@
+<header> 
+  <nav id="nav-bar">     
+      <ul>
+          <li>
+              <button class="button-glitch"><h1 class = 'title'>Sala de juegos</h1></button>
+          </li>
+          <li>
+              <button id="button-navbar" routerLink="/home" routerLinkActive="active-route">Home</button>
+          </li>
+          <li>
+              <button id="button-navbar" routerLink="/quien-soy" routerLinkActive="active-route">Quien soy</button>
+          </li>
+          <li>
+              <button id="button-navbar" routerLink="/pacman" routerLinkActive="active-route">Pac-man</button>
+          </li>
+          <li>
+              <button id="button-navbar" routerLink="/ahorcado" routerLinkActive="active-route">ahorcado</button>
+          </li>
+          <li>
+              <button id="button-navbar" routerLink="/mayoromenor" routerLinkActive="active-route">mayor o menor</button>
+          </li>
+      </ul>
+  </nav>
+</header>
+<div *ngIf="!gameOver">
+  <h2>Carta actual</h2>
+  <img *ngIf="currentCard" [src]="currentCard.image" [alt]="currentCard.code">
+  <div>
+    <button (click)="guessHigher()">Mayor</button>
+    <button (click)="guessLower()">Menor</button>
+  </div>
+  <h2 class ="texto-blanco">Puntos: {{ score }}</h2>
+  <h2 class ="texto-blanco">Vidas: {{lives}}</h2>
+</div>
+<div *ngIf="gameOver">
+  <h2 class ="texto-blanco">Perdiste!</h2>
+  <p class ="texto-blanco">Tu puntaje es final: {{ score }}</p>
+  <button (click)="resetGame()">Jugar de nuevo</button>
+</div>
