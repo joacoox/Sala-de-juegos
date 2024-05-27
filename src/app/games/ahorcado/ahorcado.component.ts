@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AhorcadoService } from '../../services/ahorcado/ahorcado.service';
 import { CommonModule, NgClass, NgFor, NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 @Component({
-  selector: 'app-ahorcado',
-  standalone: true,
-  imports: [CommonModule, NgFor, NgClass, NgForOf,FormsModule, RouterOutlet,RouterLink,RouterLinkActive],
-  templateUrl: './ahorcado.component.html',
-  styleUrl: './ahorcado.component.css'
+    selector: 'app-ahorcado',
+    standalone: true,
+    templateUrl: './ahorcado.component.html',
+    styleUrl: './ahorcado.component.css',
+    imports: [CommonModule, NgFor, NgClass, NgForOf, FormsModule, NavbarComponent]
 })
 export class AhorcadoComponent implements OnInit{ 
 
@@ -52,9 +52,9 @@ export class AhorcadoComponent implements OnInit{
     for (let index = 0; index < this.wrongKeys.length; index++) {
       const enabledKey = document.getElementById(this.wrongKeys[index]) as HTMLButtonElement;
 
-          if(enabledKey){
-            enabledKey.disabled = false;
-          }
+      if(enabledKey){
+        enabledKey.disabled = false;
+      }
     }
   }
   ResetGame(){
@@ -100,7 +100,7 @@ export class AhorcadoComponent implements OnInit{
                 this.CheckVictory();
               }
             }
-            if(this.errorNumber < 6){  
+            if(this.errorNumber <= 6){  
               if(this.wordIndex <= 2){
                 if(this.word[this.wordIndex].indexOf(letter) == -1 && this.emptySpaces.includes('_')){ 
                   // verifico que la letra actual no este en la palabra
@@ -108,9 +108,12 @@ export class AhorcadoComponent implements OnInit{
                   const disabledKey = document.getElementById(letter) as HTMLButtonElement;
         
                   if(disabledKey){
-                      disabledKey.disabled = true;
+                    disabledKey.disabled = true;
                     this.errorNumber += 1;
                     this.wrongKeys[this.wrongKeys.length] = letter;
+                    if(this.errorNumber == 6){
+                      this.loseFlag = true;
+                    }
                   }
                   
                 }
@@ -130,6 +133,8 @@ export class AhorcadoComponent implements OnInit{
   CheckVictory(){
       if(!this.emptySpaces.includes('_')){ // cuando no hay mas espacios en blanco el usuario ya completo la palabra
         this.wordIndex +=1;
+        this.EnableButtons();
+        this.wrongKeys = [];
       }  
   }
 

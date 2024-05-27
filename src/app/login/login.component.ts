@@ -50,16 +50,15 @@ export class LoginComponent{
   }
 
   AutoLogin(){
-
-    const email = document.getElementById('username') as HTMLInputElement;
-    const password = document.getElementById('password') as HTMLInputElement;
-
-    if(password && email){
-      email.value = "joaco@gmail.com";
-      password.value = "123456";
-    }  
+    this.auth.Login("joaco@gmail.com", "123456").then((res) => {
+      if (res.user.email !== null){
+        let col = collection(this.firestore, "logins");
+        addDoc(col, {fecha: new Date(), "user": "joaco@gmail.com"});
+        this.auth.userActive = res.user;
+        this.goTo("home");
+      }
+    });
   }
-
   goTo(path: string) {
     this.router.navigate([path]);
   }

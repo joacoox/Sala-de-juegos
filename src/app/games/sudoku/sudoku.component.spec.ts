@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PacmanComponent } from './pacman.component';
+import { SudokuComponent } from './sudoku.component';
 
-describe('PacmanComponent', () => {
-  let component: PacmanComponent;
-  let fixture: ComponentFixture<PacmanComponent>;
+describe('SudokuComponent', () => {
+  let component: SudokuComponent;
+  let fixture: ComponentFixture<SudokuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PacmanComponent]
+      imports: [SudokuComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PacmanComponent);
+    fixture = TestBed.createComponent(SudokuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

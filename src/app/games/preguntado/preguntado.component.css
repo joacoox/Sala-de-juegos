@@ -1,18 +1,37 @@
-/* mayor-o-menor.component.css */
-h2 {
-  text-align: center;
-  color: white;
-}
-.class{
-  color: white;
-}
 div {
   text-align: center;
+  margin-top: 20px;
 }
+
 img {
-  width: 200px;
-  height: auto;
-  margin: 10px auto;
+  margin-bottom: 20px;
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-items: center;
+}
+
+.option {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.texto{
+  color: white;
 }
 
 .btn {
@@ -57,3 +76,5 @@ img {
   background-color: #fff;
  }
  
+ 
+  

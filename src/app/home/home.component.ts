@@ -5,13 +5,14 @@ import { AuthfireService } from '../services/authfire/authfire.service';
 import { Firestore, addDoc, collection, collectionData, getDocs, orderBy, query } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Chat } from '../models/chat';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [RouterOutlet, RouterLink, RouterLinkActive, NgClass, NgFor, NgIf]
+    imports: [RouterOutlet, RouterLink, RouterLinkActive, NgClass, NgFor, NgIf, NavbarComponent]
 })
 export class HomeComponent implements OnInit, OnDestroy{
 

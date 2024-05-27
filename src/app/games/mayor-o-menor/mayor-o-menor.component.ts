@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MayoromenorService } from '../../services/mayor-o-menor/mayoromenor.service';
 import { Card } from '../../models/card';
 import { NgIf } from '@angular/common';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 @Component({
-  selector: 'app-mayor-o-menor',
-  standalone: true,
-  imports: [NgIf, RouterOutlet,RouterLink,RouterLinkActive],
-  templateUrl: './mayor-o-menor.component.html',
-  styleUrl: './mayor-o-menor.component.css'
+    selector: 'app-mayor-o-menor',
+    standalone: true,
+    templateUrl: './mayor-o-menor.component.html',
+    styleUrl: './mayor-o-menor.component.css',
+    imports: [NgIf, NavbarComponent]
 })
 export class MayorOMenorComponent implements OnInit{
 
@@ -20,7 +20,7 @@ export class MayorOMenorComponent implements OnInit{
   lives: number = 3;
   gameOver: boolean = false;
 
-  constructor(private deckService: MayoromenorService, private router: Router) {}
+  constructor(private deckService: MayoromenorService) {}
 
   ngOnInit(): void {
     this.startGame();

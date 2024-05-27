@@ -1,0 +1,21 @@
+<app-navbar>
+
+</app-navbar>
+<div *ngIf="!gameFinished">
+    <h2 class = "texto">¿Cuál es el nombre de este país?</h2>
+    <img [src]="currentCountry.flags.png" alt="Bandera de {{ currentCountry.name.common }}" width="200">
+    <div class="options-container">
+      <div class="option" *ngFor="let option of options">
+        <button (click)="checkAnswer(option)" class = "btn">{{ option }}</button>
+      </div>
+    </div>
+    <p class = "texto">Pregunta {{ questionIndex }} de {{ maxQuestions }}</p>
+    <p class = "texto">Puntuación: {{ score }}</p>
+  </div>
+  
+  <div *ngIf="gameFinished">
+    <h2 class = "texto">Juego terminado!</h2>
+    <p class = "texto">Tu puntuación es: {{ score }} de {{ maxQuestions }}</p>
+    <button (click)="playAgain()" class = "btn">Jugar otra vez</button>
+  </div>
+  

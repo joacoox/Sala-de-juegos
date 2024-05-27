@@ -1,27 +1,6 @@
-<header> 
-    <nav id="nav-bar">     
-        <ul>
-            <li>
-                <button class="button-glitch"><h1 class = 'title'>Sala de juegos</h1></button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/home" routerLinkActive="active-route">Home</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/quien-soy" routerLinkActive="active-route">Quien soy</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/pacman" routerLinkActive="active-route">Pac-man</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/ahorcado" routerLinkActive="active-route">ahorcado</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/mayoromenor" routerLinkActive="active-route">mayor o menor</button>
-            </li>
-        </ul>
-    </nav>
-</header>
+<app-navbar>
+
+</app-navbar>
 <div class="container">
     <div class="juego">
         <div class="game-container">
@@ -68,23 +47,29 @@
     </div>
     
     <div class = "hang-man">
+        <img src = "{{img[errorNumber]}}" class = 'hang-man-img'>
+        <h4><p class="prueba">Letras incorrectas:</p></h4>
         <ul class="word-container">
             <li *ngFor="let key of wrongKeys" class = "wrongkey">{{ key}}-</li>
         </ul>
-        <img src = "{{img[errorNumber]}}" class = 'hang-man-img'>
     </div>
   </div>
+<div class = "message-container">
+    <span *ngIf="winFlag" class = "message winner">Ganaste!</span>
+    <span *ngIf="loseFlag" class = "message loser">Perdiste!</span>
+</div>
+
 
   <div class = "button-placement">
     <button class="btn" (click)="StartGame()">
-        <span class="text">Play</span>
+        <span class="text">Jugar</span>
     </button>
-    <button class="btn" (click)="RestartGame()" *ngIf="winFlag">
-        <span class="text">Restart</span>
+    <button class="btn" (click)="RestartGame()" *ngIf="winFlag == true || loseFlag == true">
+        <span class="text">Reiniciar</span>
     </button>
     </div>
 
-  <span *ngIf="loseFlag" class = "prueba">GAME OVER</span>
+
 
     
       

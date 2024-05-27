@@ -1,0 +1,49 @@
+<app-navbar>
+
+</app-navbar>
+<div class="sudoku">
+  <h1>Sudoku</h1>
+  <table class="board">
+    <tr *ngFor="let i of [0, 1, 2]">
+      <td *ngFor="let j of [0, 1, 2]">
+        <div class = "block">
+          <div class="row" *ngFor="let row of [0,1,2];">
+            <div *ngFor="let col of [0,1,2];">  
+                <input
+                  type="number"
+                  class="box"
+                  min="1"
+                  max="9"
+                  [value]="playerBoard[i * 3 + row][j * 3 + col]"
+                  [readonly]="compareBoards(i * 3 + row, j * 3 + col)"
+                />
+            </div>
+         </div>            
+        </div>     
+      </td>
+    </tr>
+  </table>
+</div>
+<div class = "buttons">
+  <div *ngIf="gameOver" class = "message-container">
+    <span *ngIf="gameWon" class="message winner">Ganaste!</span>  
+    <span *ngIf="!gameWon" class="message loser">Perdiste!</span> 
+  </div>
+  <button (click)="checkBoard()" class="btn">Chequear</button>
+  <button (click)="completeBoard()" class="btn">Completar</button>
+  <div *ngIf="gameOver">
+    <div *ngIf="gameWon" > 
+      <button (click)="newGame()"  class="btn">
+        Jugar de nuevo
+      </button>
+    </div>
+    <div *ngIf="!gameWon" >
+      <button (click)="newGame()"  class="btn">
+        Jugar de nuevo
+      </button>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,27 +1,6 @@
-<header> 
-    <nav id="nav-bar">     
-        <ul>
-            <li>
-                <button class="button-glitch"><h1 class = 'title'>Sala de juegos</h1></button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/home" routerLinkActive="active-route">Home</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/quien-soy" routerLinkActive="active-route">Quien soy</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/pacman" routerLinkActive="active-route">Pac-man</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/ahorcado" routerLinkActive="active-route">ahorcado</button>
-            </li>
-            <li>
-                <button id="button-navbar" routerLink="/mayoromenor" routerLinkActive="active-route">mayor o menor</button>
-            </li>
-        </ul>
-    </nav>
-</header>
+<app-navbar>
+
+</app-navbar>
 
 <div id="container">
     <div id="div-uno" class="border-slate-400\/10">
@@ -40,7 +19,7 @@
         </div>
     </div>
     <div id="div-tres" class="border-slate-400\/10">
-        <img src="../../assets/foto-joaco.jpg" alt="foto-joaco" height="600px">
+        <img src="../../assets/foto-joaco.jpg" alt="foto-joaco" class = "foto-propia">
     </div>
     <div id="div-dos" class="border-slate-400\/10">
         <h2>Argentino</h2>
@@ -84,9 +63,19 @@
         </div>
     </div>
     <div id="div-cinco" class="border-slate-400\/10">
-        
+        <h2>Juego propio: Sudoku!</h2>
+        <span>Sudoku es un juego matemático que se inventó a finales de la década de 1970, adquirió popularidad en Japón en la década de 1980,
+        y se dio a conocer en el ámbito internacional en 2005,
+        cuando numerosos periódicos empezaron a publicarlo en su sección de pasatiempos
+        <br><br>
+        Como se juega:
+        Simplemente con el mouse tenes que clickear el incrementador que esta en la casilla que quieras poner un numero, podes aumentar
+        o bajar el numero las veces que quieras, una vez que terminaste podes chequear para ver si lo hiciste bien, o podes darle al otro boton que 
+        te lo completa automaticamente el sudoku
+    </span>
+
     </div>
     <div id="div-seis" class="border-slate-400\/10">
-        
+        <img src = "../../assets/sudoku.avif">
     </div>
 </div>
